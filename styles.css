@@ -135,82 +135,7 @@ a {
 }
 
 /* ------------------------------
-   SCROLL ROWS
------------------------------- */
-
-.scroll-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 10px;
-}
-
-.scroll-row::-webkit-scrollbar {
-    height: 6px;
-}
-
-.scroll-row::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
-}
-
-/* ------------------------------
-   GRID SECTIONS
------------------------------- */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-/* ------------------------------
-   PRODUCT CARDS
------------------------------- */
-
-.card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.card:hover {
-    background: #222;
-}
-
-.card img {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-.card-category {
-    font-size: 12px;
-    opacity: 0.6;
-    text-transform: uppercase;
-}
-
-.card-title {
-    font-size: 18px;
-    margin: 6px 0;
-}
-
-.card-details {
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-.card-price {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-/* ------------------------------
-   PRODUCT CARDS – NEW STYLE
+   CAROUSEL LAYOUT
 ------------------------------ */
 
 .carousel-wrapper {
@@ -231,7 +156,10 @@ a {
     will-change: transform;
 }
 
-/* Each card */
+/* ------------------------------
+   PRODUCT CARDS (NEW STYLE)
+------------------------------ */
+
 .card {
     background: #2a2a2a;
     border-radius: 12px;
@@ -252,7 +180,6 @@ a {
     box-shadow: 0 12px 24px rgba(0,0,0,0.45);
 }
 
-/* Card content */
 .card img,
 .card-emoji {
     width: 100%;
@@ -367,51 +294,11 @@ a {
     margin-left: 4px;
 }
 
-/* Disabled state (when at ends) */
 .carousel-arrow.disabled {
     opacity: 0.35;
     cursor: default;
     transform: none;
     box-shadow: 0 3px 0 #7f6a2a, 0 6px 12px rgba(0,0,0,0.3);
-}
-
-/* ------------------------------
-   RESPONSIVE TWEAKS
------------------------------- */
-
-@media (max-width: 1024px) {
-    .card {
-        min-width: 220px;
-        max-width: 240px;
-    }
-
-    .carousel-arrow {
-        width: 60px;
-        height: 60px;
-        font-size: 32px;
-    }
-}
-
-@media (max-width: 768px) {
-    .section {
-        padding: 60px 20px;
-    }
-
-    .carousel-wrapper {
-        gap: 10px;
-    }
-
-    .carousel-arrow {
-        width: 52px;
-        height: 52px;
-        font-size: 28px;
-    }
-
-    .card {
-        min-width: 200px;
-        max-width: 220px;
-        margin-right: 14px;
-    }
 }
 
 /* ------------------------------
@@ -473,7 +360,7 @@ a {
 }
 
 /* ------------------------------
-   CART PANEL (DARK THEME)
+   CART PANEL
 ------------------------------ */
 
 .cart {
@@ -518,11 +405,6 @@ a {
     margin-bottom: 20px;
 }
 
-.checkout-btn {
-    width: 100%;
-}
-
-/* PayPal button spacing */
 #paypal-button-container {
     margin-top: 10px;
 }
@@ -584,7 +466,40 @@ a {
    RESPONSIVE
 ------------------------------ */
 
+@media (max-width: 1024px) {
+    .card {
+        min-width: 220px;
+        max-width: 240px;
+    }
+
+    .carousel-arrow {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+    }
+}
+
 @media (max-width: 768px) {
+    .section {
+        padding: 60px 20px;
+    }
+
+    .carousel-wrapper {
+        gap: 10px;
+    }
+
+    .carousel-arrow {
+        width: 52px;
+        height: 52px;
+        font-size: 28px;
+    }
+
+    .card {
+        min-width: 200px;
+        max-width: 220px;
+        margin-right: 14px;
+    }
+
     .hero-content h2 {
         font-size: 32px;
     }
