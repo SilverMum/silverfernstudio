@@ -3,40 +3,132 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Shop</title>
+    <title>Art Shop</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <!-- Your existing site content goes here -->
-
-    <!-- CART PANEL -->
-    <div id="cart-panel" class="cart-panel">
-        <h2>Your Cart</h2>
-
-        <div id="cart-items"></div>
-
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total-amount">$0.00</span>
+    <!-- NAVIGATION -->
+    <header class="nav">
+        <div class="nav-left">
+            <h1 class="logo">ART SHOP</h1>
         </div>
+        <nav class="nav-links">
+            <a href="#originals">Originals</a>
+            <a href="#prints">Prints</a>
+            <a href="#stickers">Stickers</a>
+            <a href="#clothing">Clothing</a>
+            <a href="#stationery">Stationery</a>
+            <a href="#digital">Digital</a>
+        </nav>
+        <div class="nav-cart" id="cartButton">
+            <img src="assets/cart-icon.svg" alt="Cart" />
+        </div>
+    </header>
 
-        <!-- CHECKOUT SECTION -->
-        <div class="checkout-section">
-            <h3 class="checkout-title">CHECKOUT</h3>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>CURATED FINE ART & OBJECTS</h2>
+            <p>Original works, limited prints, and wearable art — each piece handcrafted with intention.</p>
+            <a href="#originals" class="btn-primary">EXPLORE COLLECTION</a>
+        </div>
+    </section>
 
-            <!-- PayPal Button Container -->
-            <div id="paypal-button-container"></div>
+    <!-- ORIGINALS SECTION -->
+    <section id="originals" class="section">
+        <h3 class="section-title">ONE OF A KIND <span>Originals</span></h3>
+        <div class="scroll-row" id="originalsContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- PRINTS SECTION -->
+    <section id="prints" class="section">
+        <h3 class="section-title">LIMITED EDITION <span>Prints</span></h3>
+        <div class="scroll-row" id="printsContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- STICKERS SECTION -->
+    <section id="stickers" class="section">
+        <h3 class="section-title">CARRY YOUR ART <span>Stickers</span></h3>
+        <div class="grid" id="stickersContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- CLOTHING SECTION -->
+    <section id="clothing" class="section">
+        <h3 class="section-title">WEARABLE ART <span>Clothing</span></h3>
+        <div class="grid" id="clothingContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- STATIONERY SECTION -->
+    <section id="stationery" class="section">
+        <h3 class="section-title">EVERYDAY ESSENTIALS <span>Stationery</span></h3>
+        <div class="grid" id="stationeryContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- DIGITAL DOWNLOADS -->
+    <section id="digital" class="section">
+        <h3 class="section-title">INSTANT DOWNLOADS <span>Digital</span></h3>
+        <div class="grid" id="digitalContainer">
+            <!-- JS will inject product cards here -->
+        </div>
+    </section>
+
+    <!-- PRODUCT VIEW MODAL -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">
+                <img src="assets/close-icon.svg" alt="Close" />
+            </button>
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Product Image" />
+            </div>
+
+            <div class="modal-info">
+                <h4 id="modalCategory"></h4>
+                <h2 id="modalTitle"></h2>
+                <p id="modalDetails"></p>
+                <p id="modalPrice" class="price"></p>
+                <p id="modalDescription"></p>
+
+                <button id="addToCart" class="btn-primary">ADD TO CART</button>
+                <button id="continueBrowsing" class="btn-secondary">CONTINUE BROWSING</button>
+            </div>
         </div>
     </div>
 
-    <!-- PayPal SDK (You will paste your Client ID below) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AbOne0JvXHvae8FA9WTYbEr-2ifdV_YIlh7lV3GUFx3ONG80Ffp8QPASfMT2f_HoX_CrlIGZYA62EACV&currency=USD"></script>
+    <!-- CART PANEL -->
+    <div id="cartPanel" class="cart hidden">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart">
+                <img src="assets/close-icon.svg" alt="Close" />
+            </button>
+        </div>
 
-    <!-- Your Script -->
+        <div id="cartItems" class="cart-items">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+
+        <div class="cart-footer">
+            <p class="total">TOTAL <span id="cartTotal">$0.00</span></p>
+            <button class="btn-primary checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
     <script src="script.js"></script>
 
 </body>
 </html>
-
