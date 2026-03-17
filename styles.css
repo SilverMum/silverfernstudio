@@ -157,7 +157,7 @@ a {
 }
 
 /* ------------------------------
-   PRODUCT CARDS (NEW STYLE)
+   PRODUCT CARDS
 ------------------------------ */
 
 .card {
@@ -215,7 +215,7 @@ a {
 }
 
 /* ------------------------------
-   HOVER OVERLAY + VIEW BUTTON
+   HOVER OVERLAY
 ------------------------------ */
 
 .card-overlay {
@@ -286,19 +286,9 @@ a {
     box-shadow: 0 3px 0 #b08a24, 0 8px 16px rgba(0,0,0,0.4);
 }
 
-.carousel-arrow-left {
-    margin-right: 4px;
-}
-
-.carousel-arrow-right {
-    margin-left: 4px;
-}
-
 .carousel-arrow.disabled {
     opacity: 0.35;
     cursor: default;
-    transform: none;
-    box-shadow: 0 3px 0 #7f6a2a, 0 6px 12px rgba(0,0,0,0.3);
 }
 
 /* ------------------------------
@@ -319,7 +309,7 @@ a {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .modal-content {
@@ -375,6 +365,12 @@ a {
     display: flex;
     flex-direction: column;
     z-index: 2000;
+    overflow: hidden;
+}
+
+#closeCart {
+    position: relative;
+    z-index: 10;
 }
 
 .cart-header {
