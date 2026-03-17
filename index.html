@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-<!-- TOP ANCHOR FOR HOME BUTTON -->
 <body id="top">
 
     <!-- NAVIGATION -->
@@ -25,10 +24,14 @@
             <a href="#clothing">Clothing</a>
             <a href="#stationery">Stationery</a>
             <a href="#digital">Digital</a>
+
+            <!-- CONTACT BUTTON -->
+            <a id="contactButton" class="contact-link">✉️ Contact</a>
         </nav>
 
+        <!-- CART BUTTON -->
         <div class="nav-cart" id="cartButton">
-            <img src="assets/cart-icon.svg" alt="Cart" />
+            🧺 <span>Cart</span>
         </div>
     </header>
 
@@ -122,6 +125,25 @@
                 <button id="addToCart" class="btn-primary">ADD TO CART</button>
                 <button id="continueBrowsing" class="btn-secondary">CONTINUE BROWSING</button>
             </div>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal hidden">
+        <div class="modal-content contact-content">
+            <button class="close-modal" id="closeContact">
+                <img src="assets/close-icon.svg" alt="Close" />
+            </button>
+
+            <h2>Contact</h2>
+            <p class="contact-sub">Please get in touch!</p>
+
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="contactName" placeholder="Name" required>
+                <input type="email" id="contactEmail" placeholder="Email" required>
+                <textarea id="contactMessage" placeholder="Message" required></textarea>
+                <button type="submit" class="btn-primary">SEND</button>
+            </form>
         </div>
     </div>
 
