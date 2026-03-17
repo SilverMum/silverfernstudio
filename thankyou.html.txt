@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You!</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <div class="thankyou-wrapper">
+
+        <div class="thankyou-message">
+            Thank you so much for supporting my art!<br>
+            Your order has been received and is now being processed.<br>
+            I’ll package it with care and send you an update as soon as it ships.
+        </div>
+
+        <a href="/" class="browse-btn">Continue Browsing</a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- Your existing site content goes here -->
+
+    <!-- CART PANEL -->
+    <div id="cart-panel" class="cart-panel">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-amount">$0.00</span>
+        </div>
+
+        <!-- CHECKOUT SECTION -->
+        <div class="checkout-section">
+            <h3 class="checkout-title">CHECKOUT</h3>
+
+            <!-- PayPal Button Container -->
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <!-- PayPal SDK (You will paste your Client ID below) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AbOne0JvXHvae8FA9WTYbEr-2ifdV_YIlh7lV3GUFx3ONG80Ffp8QPASfMT2f_HoX_CrlIGZYA62EACV&currency=USD"></script>
+
+    <!-- Your Script -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
