@@ -344,10 +344,30 @@ a {
     gap: 30px;
 }
 
-.modal-image img {
+.modal-image {
+    position: relative;
     width: 350px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+}
+
+/* EMOJI FALLBACK */
+.emoji-fallback {
+    font-size: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 350px;
+    text-align: center;
 }
 
 .modal-info h4 {
