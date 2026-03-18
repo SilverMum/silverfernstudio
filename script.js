@@ -76,7 +76,6 @@ function renderProductsIntoCarousels() {
 // ------------------------------
 
 const modal = document.getElementById("productModal");
-const closeModalBtn = document.getElementById("closeModal");
 const emojiFallback = document.getElementById("emojiFallback");
 const modalCategory = document.getElementById("modalCategory");
 const modalTitle = document.getElementById("modalTitle");
@@ -106,7 +105,6 @@ function closeProductModal() {
     currentProduct = null;
 }
 
-closeModalBtn.addEventListener("click", closeProductModal);
 continueBrowsingBtn.addEventListener("click", closeProductModal);
 
 modal.addEventListener("click", e => {
