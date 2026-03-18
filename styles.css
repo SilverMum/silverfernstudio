@@ -446,7 +446,6 @@ a {
     overflow: hidden;
 }
 
-/* NEW CLEAN CLOSE BUTTON */
 .cart-close-btn {
     background: #222;
     border: 1px solid #444;
@@ -484,7 +483,6 @@ a {
     margin-top: 40px;
 }
 
-/* CART ITEM STYLING */
 .cart-item {
     display: flex;
     justify-content: space-between;
