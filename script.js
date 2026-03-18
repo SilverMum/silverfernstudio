@@ -90,6 +90,7 @@ function renderProductsIntoCarousels() {
 const modal = document.getElementById("productModal");
 const closeModalBtn = document.getElementById("closeModal");
 const modalImage = document.getElementById("modalImage");
+const emojiFallback = document.getElementById("emojiFallback");
 const modalCategory = document.getElementById("modalCategory");
 const modalTitle = document.getElementById("modalTitle");
 const modalDetails = document.getElementById("modalDetails");
@@ -107,8 +108,19 @@ function openProductModal(product) {
     modalPrice.textContent = `$${product.price.toFixed(2)}`;
     modalDescription.textContent = product.description;
 
-    modalImage.src = "";
-    modalImage.alt = product.title;
+    // ------------------------------
+    // EMOJI FALLBACK LOGIC
+    // ------------------------------
+    if (!product.image || product.image.length < 3) {
+        modalImage.classList.add("hidden");
+        emojiFallback.classList.remove("hidden");
+        emojiFallback.textContent = product.image || "🖼️";
+    } else {
+        emojiFallback.classList.add("hidden");
+        modalImage.classList.remove("hidden");
+        modalImage.src = product.image;
+        modalImage.alt = product.title;
+    }
 
     modal.classList.remove("hidden");
 }
