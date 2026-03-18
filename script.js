@@ -84,7 +84,7 @@ function renderProductsIntoCarousels() {
 }
 
 // ------------------------------
-// MODAL LOGIC
+// PRODUCT MODAL LOGIC
 // ------------------------------
 
 const modal = document.getElementById("productModal");
@@ -107,10 +107,8 @@ function openProductModal(product) {
     modalPrice.textContent = `$${product.price.toFixed(2)}`;
     modalDescription.textContent = product.description;
 
-    // For now, use emoji as "image"
     modalImage.src = "";
     modalImage.alt = product.title;
-    modalImage.textContent = ""; // if you ever swap to real images, adjust here
 
     modal.classList.remove("hidden");
 }
@@ -131,7 +129,7 @@ modal.addEventListener("click", (e) => {
 });
 
 // ------------------------------
-// CART PANEL TOGGLE (existing IDs)
+// CART PANEL TOGGLE
 // ------------------------------
 
 const cartButton = document.getElementById("cartButton");
@@ -147,6 +145,54 @@ if (cartButton && cartPanel) {
 if (closeCartButton && cartPanel) {
     closeCartButton.addEventListener("click", () => {
         cartPanel.classList.add("hidden");
+    });
+}
+
+// ------------------------------
+// CONTACT MODAL LOGIC
+// ------------------------------
+
+const contactButton = document.getElementById("contactButton");
+const contactModal = document.getElementById("contactModal");
+const closeContact = document.getElementById("closeContact");
+
+if (contactButton && contactModal) {
+    contactButton.addEventListener("click", () => {
+        contactModal.classList.remove("hidden");
+    });
+}
+
+if (closeContact && contactModal) {
+    closeContact.addEventListener("click", () => {
+        contactModal.classList.add("hidden");
+    });
+}
+
+contactModal.addEventListener("click", (e) => {
+    if (e.target === contactModal) {
+        contactModal.classList.add("hidden");
+    }
+});
+
+// ------------------------------
+// CONTACT FORM EMAIL SEND
+// ------------------------------
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("contactName").value;
+        const email = document.getElementById("contactEmail").value;
+        const message = document.getElementById("contactMessage").value;
+
+        const mailtoLink = `mailto:YOUR_EMAIL_HERE?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+
+        window.location.href = mailtoLink;
+
+        contactModal.classList.add("hidden");
     });
 }
 
@@ -229,11 +275,9 @@ function setupCarousels() {
         });
 
         window.addEventListener("resize", () => {
-            // Recalculate on resize so 5 cards fit cleanly on desktop
             updatePosition();
         });
 
-        // Initial state
         updatePosition();
     });
 }
