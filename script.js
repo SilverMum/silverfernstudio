@@ -197,6 +197,67 @@ if (contactForm) {
 }
 
 // ------------------------------
+// CART FUNCTIONALITY
+// ------------------------------
+
+let cart = [];
+
+function updateCartUI() {
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<p class="empty-cart">Your cart is empty</p>`;
+        cartTotal.textContent = "$0.00";
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+            <div class="cart-item-info">
+                <span class="cart-item-title">${item.title}</span>
+                <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+            </div>
+            <button class="remove-item" data-index="${index}">✖</button>
+        `;
+
+        cartItems.appendChild(div);
+    });
+
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+
+    // Remove item buttons
+    document.querySelectorAll(".remove-item").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const index = e.target.dataset.index;
+            cart.splice(index, 1);
+            updateCartUI();
+        });
+    });
+}
+
+// ADD TO CART BUTTON
+const addToCartBtn = document.getElementById("addToCart");
+
+if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+        if (currentProduct) {
+            cart.push(currentProduct);
+            updateCartUI();
+            cartPanel.classList.remove("hidden");
+        }
+    });
+}
+
+// ------------------------------
 // CAROUSEL LOGIC
 // ------------------------------
 
