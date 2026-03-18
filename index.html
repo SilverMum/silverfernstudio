@@ -112,7 +112,11 @@
             </button>
 
             <div class="modal-image">
+                <!-- REAL IMAGE -->
                 <img id="modalImage" src="" alt="Product Image" />
+
+                <!-- EMOJI FALLBACK -->
+                <div id="emojiFallback" class="emoji-fallback hidden">🖼️</div>
             </div>
 
             <div class="modal-info">
@@ -151,8 +155,6 @@
     <div id="cartPanel" class="cart hidden">
         <div class="cart-header">
             <h3>Your Cart</h3>
-
-            <!-- NEW CLEAN CLOSE BUTTON -->
             <button id="closeCart" class="cart-close-btn">✖️</button>
         </div>
 
