@@ -10,7 +10,8 @@ const products = [
         details: "Mixed media · 12 × 16 in",
         price: 220,
         description: "A warm, glowing composition inspired by twilight.",
-        image: "🖼️"
+        image: "🖼️",
+        imageType: "emoji"
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ const products = [
         details: "Acrylic on canvas · 24 × 30 in",
         price: 620,
         description: "A celebration of seasonal contrast.",
-        image: "🖼️"
+        image: "🖼️",
+        imageType: "emoji"
     },
     {
         id: 3,
@@ -28,7 +30,8 @@ const products = [
         details: "Oil on panel · 20 × 28 in",
         price: 395,
         description: "An ode to the forest at dusk.",
-        image: "🖼️"
+        image: "🖼️",
+        imageType: "emoji"
     },
 
     /* ------------------------------
@@ -41,7 +44,8 @@ const products = [
         details: "Limited edition · 11 × 14 in",
         price: 45,
         description: "A high‑contrast nightfall print.",
-        image: "🖨️"
+        image: "🖨️",
+        imageType: "emoji"
     },
     {
         id: 11,
@@ -50,7 +54,8 @@ const products = [
         details: "Limited edition · 12 × 16 in",
         price: 55,
         description: "A premium reproduction of Solstice.",
-        image: "🖨️"
+        image: "🖨️",
+        imageType: "emoji"
     },
 
     /* ------------------------------
@@ -63,7 +68,8 @@ const products = [
         details: "Vinyl · Weatherproof",
         price: 5,
         description: "A playful woodland character.",
-        image: "✨"
+        image: "✨",
+        imageType: "emoji"
     },
     {
         id: 21,
@@ -72,7 +78,8 @@ const products = [
         details: "Vinyl · Weatherproof",
         price: 5,
         description: "A cozy nighttime camping scene.",
-        image: "🌙"
+        image: "🌙",
+        imageType: "emoji"
     },
 
     /* ------------------------------
@@ -85,7 +92,8 @@ const products = [
         details: "Sizes S–XL",
         price: 28,
         description: "Soft cotton tee featuring Ember.",
-        image: "👕"
+        image: "👕",
+        imageType: "emoji"
     },
     {
         id: 31,
@@ -94,7 +102,8 @@ const products = [
         details: "Sizes S–XL",
         price: 48,
         description: "A warm hoodie with Solstice print.",
-        image: "🧥"
+        image: "🧥",
+        imageType: "emoji"
     },
 
     /* ------------------------------
@@ -107,7 +116,8 @@ const products = [
         details: "6 designs",
         price: 12,
         description: "A curated postcard set.",
-        image: "📓"
+        image: "📓",
+        imageType: "emoji"
     },
     {
         id: 41,
@@ -116,7 +126,8 @@ const products = [
         details: "80 pages",
         price: 14,
         description: "Soft‑touch notebook with Ember.",
-        image: "📒"
+        image: "📒",
+        imageType: "emoji"
     },
 
     /* ------------------------------
@@ -129,7 +140,8 @@ const products = [
         details: "Hi‑res · 300 DPI",
         price: 18,
         description: "A complete digital bundle.",
-        image: "💾"
+        image: "💾",
+        imageType: "emoji"
     },
     {
         id: 51,
@@ -138,7 +150,8 @@ const products = [
         details: "Desktop + mobile · 4K",
         price: 12,
         description: "Atmospheric wallpapers.",
-        image: "🖥️"
+        image: "🖥️",
+        imageType: "emoji"
     },
     {
         id: 52,
@@ -147,7 +160,8 @@ const products = [
         details: "ASE + HEX · 20 palettes",
         price: 8,
         description: "Curated color palettes.",
-        image: "🎨"
+        image: "🎨",
+        imageType: "emoji"
     },
     {
         id: 53,
@@ -156,7 +170,8 @@ const products = [
         details: "Hi‑res textures · 15 files",
         price: 15,
         description: "Handcrafted textures.",
-        image: "📁"
+        image: "📁",
+        imageType: "emoji"
     },
     {
         id: 54,
@@ -165,6 +180,7 @@ const products = [
         details: "25 custom brushes",
         price: 14,
         description: "Expressive Procreate brushes.",
-        image: "🖌️"
+        image: "🖌️",
+        imageType: "emoji"
     }
 ];
