@@ -88,6 +88,21 @@ a {
 
 /* 🧺 CART BUTTON */
 .nav-cart {
+   .nav-cart {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.nav-cart:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
     display: flex;
     align-items: center;
     gap: 6px;
