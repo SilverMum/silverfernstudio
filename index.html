@@ -24,18 +24,15 @@
             <a href="#clothing">Clothing</a>
             <a href="#stationery">Stationery</a>
             <a href="#digital">Digital</a>
-
-            <!-- CONTACT BUTTON -->
             <a id="contactButton" class="contact-link">✉️ Contact</a>
         </nav>
 
-        <!-- CART BUTTON -->
         <div class="nav-cart" id="cartButton">
             🧺 <span>Cart</span>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <h2>CURATED FINE ART & OBJECTS</h2>
@@ -44,7 +41,7 @@
         </div>
     </section>
 
-    <!-- ORIGINALS SECTION -->
+    <!-- SECTIONS -->
     <section id="originals" class="section">
         <h3 class="section-title">ONE OF A KIND <span>Originals</span></h3>
         <div class="carousel-wrapper">
@@ -54,7 +51,6 @@
         </div>
     </section>
 
-    <!-- PRINTS SECTION -->
     <section id="prints" class="section">
         <h3 class="section-title">LIMITED EDITION <span>Prints</span></h3>
         <div class="carousel-wrapper">
@@ -64,7 +60,6 @@
         </div>
     </section>
 
-    <!-- STICKERS SECTION -->
     <section id="stickers" class="section">
         <h3 class="section-title">CARRY YOUR ART <span>Stickers</span></h3>
         <div class="carousel-wrapper">
@@ -74,7 +69,6 @@
         </div>
     </section>
 
-    <!-- CLOTHING SECTION -->
     <section id="clothing" class="section">
         <h3 class="section-title">WEARABLE ART <span>Clothing</span></h3>
         <div class="carousel-wrapper">
@@ -84,7 +78,6 @@
         </div>
     </section>
 
-    <!-- STATIONERY SECTION -->
     <section id="stationery" class="section">
         <h3 class="section-title">EVERYDAY ESSENTIALS <span>Stationery</span></h3>
         <div class="carousel-wrapper">
@@ -94,7 +87,6 @@
         </div>
     </section>
 
-    <!-- DIGITAL SECTION -->
     <section id="digital" class="section">
         <h3 class="section-title">INSTANT DOWNLOADS <span>Digital</span></h3>
         <div class="carousel-wrapper">
@@ -113,7 +105,6 @@
             </button>
 
             <div class="modal-image">
-                <!-- EMOJI ONLY (no <img>) -->
                 <div id="emojiFallback" class="emoji-fallback">🖼️</div>
             </div>
 
@@ -170,27 +161,18 @@
     <!-- PAYPAL SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AbOne0JvXHvae8FA9WTYbEr-2ifdV_YIlh7lV3GUFx3ONG80Ffp8QPASfMT2f_HoX_CrlIGZYA62EACV&currency=USD"></script>
 
-    <!-- PAYPAL BUTTON LOGIC -->
     <script>
         paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: document.getElementById("cartTotal").textContent.replace("$", "")
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    window.location.href = "thankyou.html";
-                });
-            }
+            createOrder: (data, actions) => actions.order.create({
+                purchase_units: [{
+                    amount: { value: document.getElementById("cartTotal").textContent.replace("$", "") }
+                }]
+            }),
+            onApprove: (data, actions) =>
+                actions.order.capture().then(() => window.location.href = "thankyou.html")
         }).render('#paypal-button-container');
     </script>
 
-    <!-- SHOP SCRIPTS -->
     <script src="products.js"></script>
     <script src="script.js"></script>
 
