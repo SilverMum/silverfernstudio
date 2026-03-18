@@ -88,7 +88,6 @@ a {
 
 /* 🧺 CART BUTTON */
 .nav-cart {
-   .nav-cart {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -101,19 +100,6 @@ a {
 .nav-cart:hover {
     opacity: 1;
     transform: translateY(-2px);
-}
-
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 18px;
-    cursor: pointer;
-    opacity: 0.85;
-    transition: 0.2s ease;
-}
-
-.nav-cart:hover {
-    opacity: 1;
 }
 
 /* ------------------------------
@@ -386,7 +372,7 @@ a {
 }
 
 /* ------------------------------
-   CONTACT MODAL (NEW)
+   CONTACT MODAL
 ------------------------------ */
 
 .contact-content {
@@ -440,9 +426,24 @@ a {
     overflow: hidden;
 }
 
-#closeCart {
-    position: relative;
-    z-index: 10;
+/* NEW CLEAN CLOSE BUTTON */
+.cart-close-btn {
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.cart-close-btn:hover {
+    background: #333;
 }
 
 .cart-header {
@@ -461,6 +462,46 @@ a {
     opacity: 0.6;
     text-align: center;
     margin-top: 40px;
+}
+
+/* CART ITEM STYLING */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-title {
+    font-size: 14px;
+}
+
+.cart-item-price {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.remove-item {
+    background: #333;
+    border: 1px solid #444;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.remove-item:hover {
+    background: #444;
 }
 
 .cart-footer {
