@@ -138,7 +138,7 @@ document.getElementById("contactForm").addEventListener("submit", e => {
     const message = document.getElementById("contactMessage").value;
 
     window.location.href =
-        `mailto:YOUR_EMAIL_HERE?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+        `mailto:silvers.vibrant.ventures@outlook.com?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
 
     contactModal.classList.add("hidden");
 });
