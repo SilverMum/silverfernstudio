@@ -14,7 +14,6 @@ const categoryToContainerId = {
 function createCard(product) {
     const card = document.createElement("div");
     card.className = "card";
-    card.dataset.productId = product.id;
 
     const emojiWrap = document.createElement("div");
     emojiWrap.className = "card-emoji";
@@ -59,26 +58,21 @@ function createCard(product) {
 
 function renderProductsIntoCarousels() {
     Object.keys(categoryToContainerId).forEach(category => {
-        const containerId = categoryToContainerId[category];
-        const outerTrack = document.getElementById(containerId);
-        if (!outerTrack) return;
-
+        const container = document.getElementById(categoryToContainerId[category]);
         const innerTrack = document.createElement("div");
         innerTrack.className = "carousel-track-inner";
 
-        const items = products.filter(p => p.category === category);
-        items.forEach(product => {
-            const card = createCard(product);
-            innerTrack.appendChild(card);
+        products.filter(p => p.category === category).forEach(product => {
+            innerTrack.appendChild(createCard(product));
         });
 
-        outerTrack.innerHTML = "";
-        outerTrack.appendChild(innerTrack);
+        container.innerHTML = "";
+        container.appendChild(innerTrack);
     });
 }
 
 // ------------------------------
-// PRODUCT MODAL LOGIC
+// PRODUCT MODAL
 // ------------------------------
 
 const modal = document.getElementById("productModal");
@@ -102,8 +96,7 @@ function openProductModal(product) {
     modalPrice.textContent = `$${product.price.toFixed(2)}`;
     modalDescription.textContent = product.description;
 
-    // Emoji only
-    emojiFallback.textContent = product.image || "🖼️";
+    emojiFallback.textContent = product.image;
 
     modal.classList.remove("hidden");
 }
@@ -113,90 +106,47 @@ function closeProductModal() {
     currentProduct = null;
 }
 
-if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", closeProductModal);
-}
+closeModalBtn.addEventListener("click", closeProductModal);
+continueBrowsingBtn.addEventListener("click", closeProductModal);
 
-if (continueBrowsingBtn) {
-    continueBrowsingBtn.addEventListener("click", closeProductModal);
-}
-
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        closeProductModal();
-    }
+modal.addEventListener("click", e => {
+    if (e.target === modal) closeProductModal();
 });
 
 // ------------------------------
-// CART PANEL TOGGLE
-// ------------------------------
-
-const cartButton = document.getElementById("cartButton");
-const cartPanel = document.getElementById("cartPanel");
-const closeCartButton = document.getElementById("closeCart");
-
-if (cartButton && cartPanel) {
-    cartButton.addEventListener("click", () => {
-        cartPanel.classList.remove("hidden");
-    });
-}
-
-if (closeCartButton && cartPanel) {
-    closeCartButton.addEventListener("click", () => {
-        cartPanel.classList.add("hidden");
-    });
-}
-
-// ------------------------------
-// CONTACT MODAL LOGIC
+// CONTACT MODAL
 // ------------------------------
 
 const contactButton = document.getElementById("contactButton");
 const contactModal = document.getElementById("contactModal");
 const closeContact = document.getElementById("closeContact");
 
-if (contactButton && contactModal) {
-    contactButton.addEventListener("click", () => {
-        contactModal.classList.remove("hidden");
-    });
-}
+contactButton.addEventListener("click", () => contactModal.classList.remove("hidden"));
+closeContact.addEventListener("click", () => contactModal.classList.add("hidden"));
 
-if (closeContact && contactModal) {
-    closeContact.addEventListener("click", () => {
-        contactModal.classList.add("hidden");
-    });
-}
-
-contactModal.addEventListener("click", (e) => {
-    if (e.target === contactModal) {
-        contactModal.classList.add("hidden");
-    }
+contactModal.addEventListener("click", e => {
+    if (e.target === contactModal) contactModal.classList.add("hidden");
 });
 
 // ------------------------------
-// CONTACT FORM EMAIL SEND
+// CONTACT FORM
 // ------------------------------
 
-const contactForm = document.getElementById("contactForm");
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
 
-if (contactForm) {
-    contactForm.addEventListener("submit", function(e) {
-        e.preventDefault();
+    const name = document.getElementById("contactName").value;
+    const email = document.getElementById("contactEmail").value;
+    const message = document.getElementById("contactMessage").value;
 
-        const name = document.getElementById("contactName").value;
-        const email = document.getElementById("contactEmail").value;
-        const message = document.getElementById("contactMessage").value;
+    window.location.href =
+        `mailto:YOUR_EMAIL_HERE?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
 
-        const mailtoLink = `mailto:YOUR_EMAIL_HERE?subject=Message from ${encodeURIComponent(name)}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0A${encodeURIComponent(message)}`;
-
-        window.location.href = mailtoLink;
-
-        contactModal.classList.add("hidden");
-    });
-}
+    contactModal.classList.add("hidden");
+});
 
 // ------------------------------
-// CART FUNCTIONALITY
+// CART
 // ------------------------------
 
 let cart = [];
@@ -234,40 +184,43 @@ function updateCartUI() {
     cartTotal.textContent = `$${total.toFixed(2)}`;
 
     document.querySelectorAll(".remove-item").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            const index = e.target.dataset.index;
-            cart.splice(index, 1);
+        btn.addEventListener("click", e => {
+            cart.splice(e.target.dataset.index, 1);
             updateCartUI();
         });
     });
 }
 
-const addToCartBtn = document.getElementById("addToCart");
-
-if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", () => {
-        if (currentProduct) {
-            cart.push(currentProduct);
-            updateCartUI();
-            cartPanel.classList.remove("hidden");
-        }
-    });
-}
+document.getElementById("addToCart").addEventListener("click", () => {
+    if (currentProduct) {
+        cart.push(currentProduct);
+        updateCartUI();
+        document.getElementById("cartPanel").classList.remove("hidden");
+    }
+});
 
 // ------------------------------
-// CAROUSEL LOGIC
+// CART PANEL
+// ------------------------------
+
+document.getElementById("cartButton").addEventListener("click", () =>
+    document.getElementById("cartPanel").classList.remove("hidden")
+);
+
+document.getElementById("closeCart").addEventListener("click", () =>
+    document.getElementById("cartPanel").classList.add("hidden")
+);
+
+// ------------------------------
+// CAROUSEL
 // ------------------------------
 
 function setupCarousels() {
-    const wrappers = document.querySelectorAll(".carousel-wrapper");
-
-    wrappers.forEach(wrapper => {
+    document.querySelectorAll(".carousel-wrapper").forEach(wrapper => {
         const leftArrow = wrapper.querySelector(".carousel-arrow-left");
         const rightArrow = wrapper.querySelector(".carousel-arrow-right");
         const track = wrapper.querySelector(".carousel-track");
         const innerTrack = track.querySelector(".carousel-track-inner");
-
-        if (!innerTrack) return;
 
         let currentIndex = 0;
 
@@ -275,15 +228,12 @@ function setupCarousels() {
             const firstCard = innerTrack.querySelector(".card");
             if (!firstCard) return 0;
             const style = window.getComputedStyle(firstCard);
-            const width = firstCard.getBoundingClientRect().width;
-            const marginRight = parseFloat(style.marginRight) || 0;
-            return width + marginRight;
+            return firstCard.getBoundingClientRect().width + parseFloat(style.marginRight);
         }
 
         function getVisibleCount() {
             const trackWidth = track.getBoundingClientRect().width;
             const cardWidth = getCardWidth();
-            if (!cardWidth) return 1;
             return Math.max(1, Math.floor(trackWidth / cardWidth));
         }
 
@@ -292,57 +242,37 @@ function setupCarousels() {
             const visibleCount = getVisibleCount();
             const maxIndex = Math.max(0, totalCards - visibleCount);
 
-            if (currentIndex <= 0) {
-                currentIndex = 0;
-                leftArrow.classList.add("disabled");
-            } else {
-                leftArrow.classList.remove("disabled");
-            }
-
-            if (currentIndex >= maxIndex) {
-                currentIndex = maxIndex;
-                rightArrow.classList.add("disabled");
-            } else {
-                rightArrow.classList.remove("disabled");
-            }
+            leftArrow.classList.toggle("disabled", currentIndex <= 0);
+            rightArrow.classList.toggle("disabled", currentIndex >= maxIndex);
         }
 
         function updatePosition() {
-            const cardWidth = getCardWidth();
-            const offset = -(currentIndex * cardWidth);
-            innerTrack.style.transform = `translateX(${offset}px)`;
+            innerTrack.style.transform = `translateX(${-currentIndex * getCardWidth()}px)`;
             updateArrows();
         }
 
         leftArrow.addEventListener("click", () => {
-            if (leftArrow.classList.contains("disabled")) return;
-            const visibleCount = getVisibleCount();
-            currentIndex -= visibleCount;
-            if (currentIndex < 0) currentIndex = 0;
-            updatePosition();
+            if (!leftArrow.classList.contains("disabled")) {
+                currentIndex = Math.max(0, currentIndex - getVisibleCount());
+                updatePosition();
+            }
         });
 
         rightArrow.addEventListener("click", () => {
-            if (rightArrow.classList.contains("disabled")) return;
-            const visibleCount = getVisibleCount();
-            const totalCards = innerTrack.querySelectorAll(".card").length;
-            const maxIndex = Math.max(0, totalCards - visibleCount);
-            currentIndex += visibleCount;
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-            updatePosition();
+            if (!rightArrow.classList.contains("disabled")) {
+                const totalCards = innerTrack.querySelectorAll(".card").length;
+                const visibleCount = getVisibleCount();
+                const maxIndex = Math.max(0, totalCards - visibleCount);
+                currentIndex = Math.min(maxIndex, currentIndex + visibleCount);
+                updatePosition();
+            }
         });
 
-        window.addEventListener("resize", () => {
-            updatePosition();
-        });
+        window.addEventListener("resize", updatePosition);
 
         updatePosition();
     });
 }
-
-// ------------------------------
-// INIT
-// ------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
     renderProductsIntoCarousels();
