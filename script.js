@@ -2,8 +2,6 @@
 // PRODUCT RENDERING + CAROUSEL
 // ------------------------------
 
-// Assumes `products` array is loaded from products.js
-
 const categoryToContainerId = {
     originals: "originalsContainer",
     prints: "printsContainer",
@@ -18,10 +16,10 @@ function createCard(product) {
     card.className = "card";
     card.dataset.productId = product.id;
 
-    // Image/emoji area
+    // Emoji as card image
     const emojiWrap = document.createElement("div");
     emojiWrap.className = "card-emoji";
-    emojiWrap.textContent = product.image || "🖼️";
+    emojiWrap.textContent = product.image;
 
     const category = document.createElement("p");
     category.className = "card-category";
@@ -39,7 +37,6 @@ function createCard(product) {
     price.className = "card-price";
     price.textContent = `$${product.price.toFixed(2)}`;
 
-    // Overlay + VIEW button
     const overlay = document.createElement("div");
     overlay.className = "card-overlay";
 
@@ -56,7 +53,6 @@ function createCard(product) {
     card.appendChild(price);
     card.appendChild(overlay);
 
-    // Clicking anywhere on card or VIEW opens modal
     card.addEventListener("click", () => openProductModal(product));
 
     return card;
@@ -68,7 +64,6 @@ function renderProductsIntoCarousels() {
         const outerTrack = document.getElementById(containerId);
         if (!outerTrack) return;
 
-        // Create inner track for sliding
         const innerTrack = document.createElement("div");
         innerTrack.className = "carousel-track-inner";
 
@@ -109,13 +104,17 @@ function openProductModal(product) {
     modalDescription.textContent = product.description;
 
     // ------------------------------
-    // EMOJI FALLBACK LOGIC
+    // EMOJI FALLBACK (corrected)
     // ------------------------------
-    if (!product.image || product.image.length < 3) {
+    const isRealImage = product.imageType === "file";
+
+    if (!isRealImage) {
+        // Show emoji fallback
         modalImage.classList.add("hidden");
         emojiFallback.classList.remove("hidden");
-        emojiFallback.textContent = product.image || "🖼️";
+        emojiFallback.textContent = product.image;
     } else {
+        // Show real image
         emojiFallback.classList.add("hidden");
         modalImage.classList.remove("hidden");
         modalImage.src = product.image;
@@ -246,7 +245,6 @@ function updateCartUI() {
 
     cartTotal.textContent = `$${total.toFixed(2)}`;
 
-    // Remove item buttons
     document.querySelectorAll(".remove-item").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const index = e.target.dataset.index;
@@ -256,7 +254,6 @@ function updateCartUI() {
     });
 }
 
-// ADD TO CART BUTTON
 const addToCartBtn = document.getElementById("addToCart");
 
 if (addToCartBtn) {
