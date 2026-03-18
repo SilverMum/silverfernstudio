@@ -16,7 +16,6 @@ function createCard(product) {
     card.className = "card";
     card.dataset.productId = product.id;
 
-    // Emoji as card image
     const emojiWrap = document.createElement("div");
     emojiWrap.className = "card-emoji";
     emojiWrap.textContent = product.image;
@@ -84,13 +83,13 @@ function renderProductsIntoCarousels() {
 
 const modal = document.getElementById("productModal");
 const closeModalBtn = document.getElementById("closeModal");
-const modalImage = document.getElementById("modalImage");
 const emojiFallback = document.getElementById("emojiFallback");
 const modalCategory = document.getElementById("modalCategory");
 const modalTitle = document.getElementById("modalTitle");
 const modalDetails = document.getElementById("modalDetails");
 const modalPrice = document.getElementById("modalPrice");
 const modalDescription = document.getElementById("modalDescription");
+const continueBrowsingBtn = document.getElementById("continueBrowsing");
 
 let currentProduct = null;
 
@@ -103,23 +102,8 @@ function openProductModal(product) {
     modalPrice.textContent = `$${product.price.toFixed(2)}`;
     modalDescription.textContent = product.description;
 
-    // ------------------------------
-    // EMOJI FALLBACK (corrected)
-    // ------------------------------
-    const isRealImage = product.imageType === "file";
-
-    if (!isRealImage) {
-        // Show emoji fallback
-        modalImage.classList.add("hidden");
-        emojiFallback.classList.remove("hidden");
-        emojiFallback.textContent = product.image;
-    } else {
-        // Show real image
-        emojiFallback.classList.add("hidden");
-        modalImage.classList.remove("hidden");
-        modalImage.src = product.image;
-        modalImage.alt = product.title;
-    }
+    // Emoji only
+    emojiFallback.textContent = product.image || "🖼️";
 
     modal.classList.remove("hidden");
 }
@@ -131,6 +115,10 @@ function closeProductModal() {
 
 if (closeModalBtn) {
     closeModalBtn.addEventListener("click", closeProductModal);
+}
+
+if (continueBrowsingBtn) {
+    continueBrowsingBtn.addEventListener("click", closeProductModal);
 }
 
 modal.addEventListener("click", (e) => {
