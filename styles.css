@@ -14,6 +14,19 @@ body {
     font-family: "DM Sans", sans-serif;
     line-height: 1.5;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* FOREST BACKGROUND (30% opacity) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("assets/forest-bg.png") top center no-repeat;
+    background-size: cover;
+    opacity: 0.30;
+    pointer-events: none;
+    z-index: -1;
 }
 
 img {
@@ -114,9 +127,6 @@ a {
 /* ------------------------------
    HERO SECTION
 ------------------------------ */
-/* ------------------------------
-   NEW HERO BRANDING
------------------------------- */
 
 .hero {
     height: 70vh;
@@ -167,16 +177,6 @@ a {
     font-size: 20px;
     opacity: 0.85;
     margin-bottom: 30px;
-}
-
-.hero {
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
-    padding: 40px;
 }
 
 .hero-content h2 {
