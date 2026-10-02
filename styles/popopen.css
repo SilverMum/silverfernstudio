@@ -1,0 +1,101 @@
+/* ==========================================
+POPUP OVERLAY
+========================================== */
+ 
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.85);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 40px;
+z-index: 5000;
+}
+ 
+.hidden {
+display: none !important;
+}
+ 
+/* ==========================================
+POPUP CONTENT
+========================================== */
+ 
+.modal-content {
+background: #1a1a1a;
+padding: 30px;
+border-radius: 10px;
+width: 900px;
+max-width: 95%;
+display: flex;
+gap: 30px;
+}
+ 
+.modal-image {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+ 
+.emoji-fallback {
+font-size: 140px;
+}
+ 
+/* ==========================================
+POPUP TEXT
+========================================== */
+ 
+.modal-info h4 {
+opacity: 0.6;
+text-transform: uppercase;
+font-size: 14px;
+}
+ 
+.modal-info h2 {
+font-size: 32px;
+margin: 10px 0;
+}
+ 
+.modal-info .price {
+font-size: 22px;
+margin: 10px 0;
+}
+ 
+/* ==========================================
+CONTACT POPUP
+========================================== */
+ 
+.contact-content {
+flex-direction: column;
+text-align: center;
+}
+ 
+.contact-sub {
+opacity: 0.7;
+margin-bottom: 20px;
+}
+ 
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+width: 100%;
+}
+ 
+.contact-form input,
+.contact-form textarea {
+background: #222;
+border: 1px solid #333;
+padding: 12px;
+border-radius: 6px;
+color: white;
+font-size: 16px;
+}
+ 
+.contact-form textarea {
+height: 120px;
+resize: none;
+}
