@@ -1,0 +1,59 @@
+/* ==========================================
+TABLET
+========================================== */
+ 
+@media (max-width: 1024px) {
+ 
+.card {
+min-width: 220px;
+max-width: 240px;
+}
+ 
+.carousel-arrow {
+width: 60px;
+height: 60px;
+font-size: 32px;
+}
+ 
+}
+ 
+/* ==========================================
+MOBILE
+========================================== */
+ 
+@media (max-width: 768px) {
+ 
+.section {
+padding: 60px 20px;
+}
+ 
+.carousel-wrapper {
+gap: 10px;
+}
+ 
+.carousel-arrow {
+width: 52px;
+height: 52px;
+font-size: 28px;
+}
+ 
+.card {
+min-width: 200px;
+max-width: 220px;
+margin-right: 14px;
+}
+ 
+.hero-content h2 {
+font-size: 32px;
+}
+ 
+.modal-content {
+flex-direction: column;
+text-align: center;
+}
+ 
+.modal-image {
+margin: 0 auto;
+}
+ 
+}
