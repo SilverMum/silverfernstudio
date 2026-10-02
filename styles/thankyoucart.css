@@ -1,0 +1,161 @@
+/* ==========================================
+CART PANEL
+========================================== */
+ 
+.cart {
+position: fixed;
+right: 0;
+top: 0;
+width: 380px;
+height: 100%;
+background: #111;
+padding: 20px;
+border-left: 2px solid #222;
+display: flex;
+flex-direction: column;
+z-index: 6000;
+overflow: hidden;
+}
+ 
+.cart-close-btn {
+background: #222;
+border: 1px solid #444;
+color: #fff;
+font-size: 18px;
+width: 32px;
+height: 32px;
+border-radius: 6px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 0.2s ease;
+}
+ 
+.cart-close-btn:hover {
+background: #333;
+}
+ 
+.cart-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+ 
+.cart-items {
+flex: 1;
+margin-top: 20px;
+overflow-y: auto;
+}
+ 
+.empty-cart {
+opacity: 0.6;
+text-align: center;
+margin-top: 40px;
+}
+ 
+.cart-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #1a1a1a;
+padding: 10px;
+border-radius: 6px;
+margin-bottom: 10px;
+}
+ 
+.cart-item-info {
+display: flex;
+flex-direction: column;
+}
+ 
+.cart-item-title {
+font-size: 14px;
+}
+ 
+.cart-item-price {
+font-size: 14px;
+opacity: 0.8;
+}
+ 
+.remove-item {
+background: #333;
+border: 1px solid #444;
+color: #fff;
+width: 28px;
+height: 28px;
+border-radius: 4px;
+cursor: pointer;
+transition: 0.2s ease;
+}
+ 
+.remove-item:hover {
+background: #444;
+}
+ 
+.cart-footer {
+border-top: 1px solid #333;
+padding-top: 20px;
+}
+ 
+.total {
+font-size: 18px;
+margin-bottom: 20px;
+}
+ 
+#paypal-button-container {
+margin-top: 10px;
+}
+ 
+/* ==========================================
+THANK YOU PAGE
+========================================== */
+ 
+.thankyou-wrapper {
+position: relative;
+text-align: center;
+padding: 80px 20px;
+min-height: 100vh;
+background: #0d0d0d;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+ 
+.thankyou-wrapper::before {
+content: "💌";
+position: absolute;
+font-size: 200px;
+opacity: 0.08;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+ 
+.thankyou-message {
+position: relative;
+font-size: 22px;
+line-height: 1.6;
+max-width: 600px;
+margin-bottom: 40px;
+z-index: 2;
+}
+ 
+.browse-btn {
+position: relative;
+display: inline-block;
+padding: 12px 24px;
+background: #333;
+color: white;
+text-decoration: none;
+border-radius: 6px;
+font-size: 18px;
+transition: background 0.2s ease;
+z-index: 2;
+}
+ 
+.browse-btn:hover {
+background: #555;
+}
