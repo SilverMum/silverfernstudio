@@ -242,7 +242,7 @@
     <script src="products.js"></script>
     <script src="script.js"></script>
 
-    <!-- Donate Window -->
+    <!-- DONATE WINDOW -->
 <script>
     const donateModal = document.getElementById("donateModal");
     const supportDonateBtn = document.getElementById("supportDonateBtn");
@@ -272,7 +272,44 @@
             donateModal.classList.remove("show");
         }
     });
+
+
+    // =========================================
+    // PAYPAL SUPPORT BUTTONS
+    // =========================================
+
+    const paypalLink = "https://paypal.me/SilverGamingInc";
+
+    const donateAmountButtons = document.querySelectorAll(".donate-amount-btn");
+
+    donateAmountButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const amount = button.textContent.trim();
+
+            if (amount === "$5") {
+                window.open(paypalLink + "/5", "_blank");
+            }
+
+            else if (amount === "$10") {
+                window.open(paypalLink + "/10", "_blank");
+            }
+
+            else if (amount === "$20") {
+                window.open(paypalLink + "/20", "_blank");
+            }
+
+            else if (amount === "Custom Amount") {
+                window.open(paypalLink, "_blank");
+            }
+
+        });
+
+    });
 </script>
+
+
 
 </body>
 </html>
