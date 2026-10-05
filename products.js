@@ -6,10 +6,10 @@ const products = [
     {
         id: 1,
         category: "originals",
-        title: "Ember",
-        details: "Mixed media · 12 × 16 in",
-        price: 220,
-        description: "A warm, glowing composition inspired by twilight.",
+        title: "Untitled",
+        details: "Acrylic on canvas · 24 × 24 in",
+        price: 320,
+        description: "H-D MC",
         image: "🖼️",
         imageType: "emoji"
     },
@@ -18,7 +18,7 @@ const products = [
         category: "originals",
         title: "untitled",
         details: "Acrylic on canvas · 22 × 28 in",
-        price: 620,
+        price: 520,
         description: "H-D Heritage Classic MC",
         image: "🖼️",
         imageType: "emoji"
