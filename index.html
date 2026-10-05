@@ -242,5 +242,37 @@
     <script src="products.js"></script>
     <script src="script.js"></script>
 
+    <!-- Donate Window -->
+<script>
+    const donateModal = document.getElementById("donateModal");
+    const supportDonateBtn = document.getElementById("supportDonateBtn");
+    const donateCloseBtn = document.getElementById("donateCloseBtn");
+
+    // Open popup
+    supportDonateBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        donateModal.classList.add("show");
+    });
+
+    // Close popup
+    donateCloseBtn.addEventListener("click", function() {
+        donateModal.classList.remove("show");
+    });
+
+    // Close when clicking outside the popup
+    donateModal.addEventListener("click", function(event) {
+        if (event.target === donateModal) {
+            donateModal.classList.remove("show");
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            donateModal.classList.remove("show");
+        }
+    });
+</script>
+
 </body>
 </html>
