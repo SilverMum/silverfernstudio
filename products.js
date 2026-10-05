@@ -16,10 +16,10 @@ const products = [
     {
         id: 2,
         category: "originals",
-        title: "Solstice",
-        details: "Acrylic on canvas · 24 × 30 in",
+        title: "untitled",
+        details: "Acrylic on canvas · 22 × 28 in",
         price: 620,
-        description: "A celebration of seasonal contrast.",
+        description: "H-D Heritage Classic MC",
         image: "🖼️",
         imageType: "emoji"
     },
