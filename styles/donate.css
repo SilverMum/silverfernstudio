@@ -1,0 +1,141 @@
+/* =========================================
+   SUPPORT / DONATE POPUP
+   ========================================= */
+
+.donate-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.donate-modal.show {
+    display: flex;
+}
+
+.donate-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    background: #f3eee6;
+    border: 2px solid #d8d2c8;
+    border-radius: 14px;
+    padding: 40px 35px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.donate-modal-content h2 {
+    margin: 0 35px 25px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000;
+}
+
+.donate-modal-content p {
+    margin: 0 auto 18px;
+    max-width: 500px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.donate-thank-you {
+    font-weight: 700;
+    margin-top: 25px !important;
+}
+
+.donate-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #333;
+
+    cursor: pointer;
+}
+
+.donate-close:hover {
+    color: #000;
+}
+
+.donate-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.donate-amount-btn {
+    min-width: 110px;
+    padding: 14px 20px;
+
+    border: 2px solid #6b5e4a;
+    border-radius: 8px;
+
+    background: #6b5e4a;
+    color: #fff;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.donate-amount-btn:hover {
+    background: #514737;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .donate-modal {
+        padding: 15px;
+    }
+
+    .donate-modal-content {
+        padding: 35px 20px 25px;
+        max-height: 90vh;
+    }
+
+    .donate-modal-content h2 {
+        font-size: 1.6rem;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .donate-modal-content p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    .donate-buttons {
+        gap: 10px;
+    }
+
+    .donate-amount-btn {
+        min-width: 100px;
+    }
+}
