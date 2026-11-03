@@ -875,3 +875,109 @@ button:focus-visible {
     }
 
 }
+
+
+/* =========================================================
+   FAQ PAGE — LIGHT BOTANICAL THEME TEXT FIX
+========================================================= */
+
+#faq-page {
+    background: var(--cream);
+    color: var(--ink);
+}
+
+/* FAQ HEADING */
+
+#faq-page .faq-hero h1 {
+    color: var(--forest);
+}
+
+#faq-page .faq-eyebrow {
+    color: var(--sage);
+}
+
+#faq-page .faq-intro {
+    color: #555d51;
+}
+
+#faq-page .faq-divider {
+    background: var(--gold);
+}
+
+/* FAQ ACCORDION */
+
+#faq-page .faq-container {
+    color: var(--ink);
+}
+
+#faq-page .faq-item {
+    background: var(--cream-light);
+    border: 1px solid rgba(32, 56, 43, 0.18);
+    color: var(--ink);
+}
+
+#faq-page .faq-item summary {
+    color: var(--forest);
+}
+
+#faq-page .faq-item summary span {
+    color: var(--forest);
+}
+
+#faq-page .faq-icon {
+    color: var(--gold);
+}
+
+#faq-page .faq-answer {
+    background: var(--cream-light);
+    color: #555d51;
+}
+
+#faq-page .faq-answer p,
+#faq-page .faq-answer li {
+    color: #555d51;
+}
+
+#faq-page .faq-answer a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+}
+
+#faq-page .faq-answer a:hover {
+    color: var(--sage);
+}
+
+/* FAQ CONTACT SECTION */
+
+#faq-page .faq-contact {
+    background: #e9ede4;
+    color: var(--ink);
+}
+
+#faq-page .faq-contact h2 {
+    color: var(--forest);
+}
+
+#faq-page .faq-contact p {
+    color: #555d51;
+}
+
+/* FAQ FOOTER */
+
+.faq-footer {
+    background: var(--forest-dark);
+    color: var(--cream-light);
+}
+
+.faq-footer p {
+    color: var(--cream-light);
+}
+
+.faq-footer a {
+    color: var(--gold-light);
+}
+
+.faq-footer a:hover {
+    color: #ffffff;
+}
