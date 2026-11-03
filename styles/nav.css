@@ -1,58 +1,175 @@
-/* ------------------------------
-NAVIGATION
------------------------------- */
- 
+
+/* =========================================================
+   SILVER FERN STUDIO
+   GLOBAL NAVIGATION STYLES
+========================================================= */
+
+
+/* =========================================================
+   MAIN NAVIGATION BAR
+========================================================= */
+
 .nav {
-width: 100%;
-padding: 20px 40px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: #0d0d0d;
-position: sticky;
-top: 0;
-z-index: 1000;
+    width: 100%;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #0d0d0d;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
- 
+
+
+/* =========================================================
+   LEFT SIDE / LOGO
+========================================================= */
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 .logo {
-font-size: 22px;
-font-weight: 700;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
 }
- 
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
-margin: 0 15px;
-font-size: 14px;
-opacity: 0.8;
-transition: 0.2s;
+    margin: 0 15px;
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.8;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.2s ease;
 }
- 
+
 .nav-links a:hover {
-opacity: 1;
+    opacity: 1;
 }
- 
-/* CONTACT LINK */
+
+
+/* =========================================================
+   CONTACT LINK
+========================================================= */
+
 .contact-link {
-cursor: pointer;
-opacity: 0.85;
-transition: 0.2s ease;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: 0.2s ease;
 }
- 
+
 .contact-link:hover {
-opacity: 1;
+    opacity: 1;
 }
- 
-/* CART BUTTON */
+
+
+/* =========================================================
+   SHOPPING CART BUTTON
+========================================================= */
+
 .nav-cart {
-display: flex;
-align-items: center;
-gap: 6px;
-font-size: 18px;
-cursor: pointer;
-opacity: 0.85;
-transition: transform 0.15s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 18px;
+    color: #ffffff;
+
+    cursor: pointer;
+    opacity: 0.85;
+
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.2s ease;
 }
- 
+
 .nav-cart:hover {
-opacity: 1;
-transform: translateY(-2px);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+.nav-links a:focus-visible,
+.nav-cart:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   RESPONSIVE NAVIGATION
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .nav {
+        padding: 18px 25px;
+    }
+
+    .nav-links a {
+        margin: 0 9px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .nav {
+        padding: 15px 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 5px;
+        font-size: 13px;
+    }
+
+    .nav-cart {
+        font-size: 16px;
+    }
+
 }
