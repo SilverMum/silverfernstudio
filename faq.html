@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/mobile.css">
     <link rel="stylesheet" href="styles/faq.css">
+    <link rel="stylesheet" href="styles/nature-redesign.css">
 
     <!-- POPUPS, DONATE AND CART STYLES -->
     <link rel="stylesheet" href="styles/popopen.css">
@@ -30,44 +31,63 @@
      NAVIGATION
 ========================================================= -->
 
-<header class="nav">
+<header class="site-header">
 
-    <div class="nav-left">
-        <h1 class="logo">ART SHOP</h1>
+    <div class="brand-header">
+
+        <div class="brand-fern" aria-hidden="true">
+            ❧
+        </div>
+
+        <a href="index.html#top" class="brand-name">
+            SILVER FERN STUDIO
+        </a>
+
+        <p class="brand-tagline">
+            ROOTED IN NATURE · FUELED BY CREATIVITY
+        </p>
+
     </div>
 
-    <nav class="nav-links">
+    <nav class="nav">
 
-        <a href="index.html#top">Home</a>
+        <div class="nav-links">
 
-        <!-- SHOP DROPDOWN -->
-        <details class="nav-dropdown">
-            <summary>Shop</summary>
+            <a href="index.html#top">Home</a>
 
-            <div class="nav-dropdown-menu">
-                <a href="index.html#originals">Originals</a>
-                <a href="index.html#prints">Prints</a>
-                <a href="index.html#stickers">Stickers</a>
-                <a href="index.html#clothing">Clothing</a>
-                <a href="index.html#stationery">Stationery</a>
-                <a href="index.html#digital">Digital</a>
-            </div>
-        </details>
+            <details class="nav-dropdown">
 
-        <a href="faq.html">FAQ</a>
+                <summary>Shop</summary>
 
-        <a href="#" id="supportDonateBtn">Support/Donate</a>
+                <div class="nav-dropdown-menu">
 
-        <a id="contactButton" class="contact-link">✉️ Contact</a>
+                    <a href="index.html#originals">Originals</a>
+                    <a href="index.html#prints">Prints</a>
+                    <a href="index.html#stickers">Stickers</a>
+                    <a href="index.html#clothing">Clothing</a>
+                    <a href="index.html#stationery">Stationery</a>
+                    <a href="index.html#digital">Digital</a>
+
+                </div>
+
+            </details>
+
+            <a href="faq.html">FAQ</a>
+
+            <a href="#" id="supportDonateBtn">Support/Donate</a>
+
+            <a id="contactButton" class="contact-link">Contact</a>
+
+        </div>
+
+        <div class="nav-cart" id="cartButton" role="button" tabindex="0">
+            <span class="cart-icon">🛒</span>
+            <span>Cart</span>
+        </div>
 
     </nav>
 
-    <div class="nav-cart" id="cartButton">
-        🧺 <span>Cart</span>
-    </div>
-
 </header>
-
 
 <!-- =========================================================
      FAQ PAGE
