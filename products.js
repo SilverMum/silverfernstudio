@@ -1,37 +1,57 @@
 const products = [
 
+    
     /* ------------------------------
        ORIGINALS
     ------------------------------ */
+
+    // ORIGINAL 1 — LEAVE AS PLACEHOLDER FOR NOW
     {
         id: 1,
         category: "originals",
         title: "Untitled",
-        details: "Acrylic on canvas · 24 × 24 in",
-        price: 320,
-        description: "H-D MC",
+        details: "Details coming soon",
+        price: 0,
+        description: "Original artwork coming soon.",
         image: "🖼️",
         imageType: "emoji"
     },
+
+    // ORIGINAL 2 — ORIGINAL #001
     {
         id: 2,
         category: "originals",
-        title: "untitled",
-        details: "Acrylic on canvas · 22 × 28 in",
-        price: 520,
-        description: "H-D Heritage Classic MC",
-        image: "🖼️",
-        imageType: "emoji"
+        title: "Original #001",
+        details: "Original acrylic artwork",
+        price: 0,
+        description: "Original #001",
+        image: "images/0riginal001.png",
+        imageType: "image"
     },
+
+    // ORIGINAL 3 — SOLD OUT
     {
         id: 3,
         category: "originals",
-        title: "unavailable",
-        details: "unavailable",
+        title: "Original #003",
+        details: "Sold Out",
         price: 0,
-        description: "unavailable",
-        image: "🖼️",
-        imageType: "emoji"
+        description: "This original artwork has sold.",
+        image: "images/0riginal003.png",
+        imageType: "image",
+        soldOut: true
+    },
+
+    // ORIGINAL 4 — NEW ADDITION
+    {
+        id: 4,
+        category: "originals",
+        title: "Original #004",
+        details: "Original acrylic artwork · 11 × 14 in",
+        price: 0,
+        description: "Original #004 — 11 × 14 inches.",
+        image: "images/0riginal004.png",
+        imageType: "image"
     },
 
     /* ------------------------------
