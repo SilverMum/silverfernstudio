@@ -11,47 +11,103 @@ const categoryToContainerId = {
     digital: "digitalContainer"
 };
 
+
 function createCard(product) {
+
     const card = document.createElement("div");
     card.className = "card";
 
-    const emojiWrap = document.createElement("div");
-    emojiWrap.className = "card-emoji";
-    emojiWrap.textContent = product.image;
+    if (product.soldOut) {
+        card.classList.add("sold-out");
+    }
 
+    // PRODUCT IMAGE AREA
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "card-emoji";
+
+    if (product.imageType === "image") {
+
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.alt = product.title;
+        img.loading = "lazy";
+
+        imageWrap.appendChild(img);
+
+    } else {
+
+        imageWrap.textContent = product.image;
+
+    }
+
+    // SOLD OUT LABEL
+    if (product.soldOut) {
+
+        const soldLabel = document.createElement("div");
+        soldLabel.className = "sold-out-label";
+        soldLabel.textContent = "SOLD OUT";
+
+        imageWrap.appendChild(soldLabel);
+
+    }
+
+    // CATEGORY
     const category = document.createElement("p");
     category.className = "card-category";
     category.textContent = product.category;
 
+    // TITLE
     const title = document.createElement("h4");
     title.className = "card-title";
     title.textContent = product.title;
 
+    // DETAILS
     const details = document.createElement("p");
     details.className = "card-details";
     details.textContent = product.details;
 
+    // PRICE
     const price = document.createElement("p");
     price.className = "card-price";
-    price.textContent = `$${product.price.toFixed(2)}`;
 
+    price.textContent = product.soldOut
+        ? "SOLD OUT"
+        : product.price > 0
+            ? `$${product.price.toFixed(2)}`
+            : "Price coming soon";
+
+    // HOVER OVERLAY
     const overlay = document.createElement("div");
     overlay.className = "card-overlay";
 
     const viewBtn = document.createElement("button");
     viewBtn.className = "view-btn";
-    viewBtn.textContent = "VIEW";
+
+    if (product.soldOut) {
+
+        viewBtn.textContent = "SOLD OUT";
+        viewBtn.disabled = true;
+
+    } else {
+
+        viewBtn.textContent = "VIEW";
+
+    }
 
     overlay.appendChild(viewBtn);
 
-    card.appendChild(emojiWrap);
+    // BUILD CARD
+    card.appendChild(imageWrap);
     card.appendChild(category);
     card.appendChild(title);
     card.appendChild(details);
     card.appendChild(price);
     card.appendChild(overlay);
 
-    card.addEventListener("click", () => openProductModal(product));
+    // OPEN PRODUCT ONLY IF AVAILABLE
+    if (!product.soldOut) {
+        card.addEventListener("click", () => openProductModal(product));
+    }
 
     return card;
 }
